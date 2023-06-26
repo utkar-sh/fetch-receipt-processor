@@ -46,6 +46,7 @@ Example request body:
     {"shortDescription": "Dasani", "price": 1.40}
   ]
 }
+```
 
 ### Retrieving Points for a Receipt
 
@@ -58,6 +59,7 @@ The response will be a JSON object with the points earned for the receipt:
 {
   "points": 31
 }
+```
 
 Please note that the provided JSON examples are for demonstration purposes, and you can adjust the request body and response format as per your application's requirements.
 
