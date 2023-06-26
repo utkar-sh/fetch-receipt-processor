@@ -22,7 +22,9 @@ The server will start listening on port 8080 by default. You can change the port
 
 ## Usage
 
-### Submitting a ReceiptTo submit a receipt, send a POST request to the /receipts/process endpoint with the receipt data in the request body. The receipt data should be in JSON format and include the following fields:
+### Submitting a Receipt
+
+To submit a receipt, send a POST request to the /receipts/process endpoint with the receipt data in the request body. The receipt data should be in JSON format and include the following fields:
 
 retailer: The name of the retailer.
 * purchaseDate: The purchase date in the format yyyy-MM-dd.
@@ -43,4 +45,20 @@ Example request body:
     {"shortDescription": "Pepsi - 12-oz", "price": 1.25},
     {"shortDescription": "Dasani", "price": 1.40}
   ]
-}```
+}
+
+### Retrieving Points for a Receipt
+
+To retrieve the points earned for a receipt, send a GET request to the /receipt/{id}/points endpoint, where {id} is the ID generated when submitting the receipt. The ID is returned in the response when a receipt is processed.
+
+Example GET request: /receipt/abc123/points
+
+The response will be a JSON object with the points earned for the receipt:
+```json
+{
+  "points": 31
+}
+
+Please note that the provided JSON examples are for demonstration purposes, and you can adjust the request body and response format as per your application's requirements.
+
+Feel free to explore and modify the code to suit your specific use case. If you encounter any issues or have further questions, please don't hesitate to reach out for assistance.
