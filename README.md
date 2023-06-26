@@ -18,17 +18,29 @@ The Receipt Processing API is a Go-based web service that allows you to process 
    ```shell
    go run main.go
 
-   The server will start listening on port 8080 by default. You can change the port by modifying the code in main.go.
+The server will start listening on port 8080 by default. You can change the port by modifying the code in main.go.
 
 ## Usage
 
 ### Submitting a ReceiptTo submit a receipt, send a POST request to the /receipts/process endpoint with the receipt data in the request body. The receipt data should be in JSON format and include the following fields:
 
 retailer: The name of the retailer.
-purchaseDate: The purchase date in the format yyyy-MM-dd.
-purchaseTime: The purchase time in the format HH:mm.
-total: The total amount of the purchase as a decimal number.
-items: An array of objects representing the items on the receipt. Each item object should have the following fields:
-shortDescription: A short description of the item.
-price: The price of the item as a decimal number.
+* purchaseDate: The purchase date in the format yyyy-MM-dd.
+* purchaseTime: The purchase time in the format HH:mm.
+* total: The total amount of the purchase as a decimal number.
+* items: An array of objects representing the items on the receipt. Each item object should have the following fields:
+   * shortDescription: A short description of the item.
+   * price: The price of the item as a decimal number.
+
 Example request body:
+   ```json
+   {
+  "retailer": "Walgreens",
+  "purchaseDate": "2022-01-02",
+  "purchaseTime": "08:13",
+  "total": 2.65,
+  "items": [
+    {"shortDescription": "Pepsi - 12-oz", "price": 1.25},
+    {"shortDescription": "Dasani", "price": 1.40}
+  ]
+}```
